@@ -1,0 +1,20 @@
+@app.route('/tracker', methods=['GET', 'POST'])
+def tracker():
+    if request.method == 'POST':
+        try:
+            last_date = datetime.strptime(request.form['date'], '%Y-%m-%d')
+            cycle = int(request.form['cycle'])
+            next_date = last_date + timedelta(days=cycle)
+            fertile_start = last_date + timedelta(days=cycle - 19)
+            fertile_end = last_date + timedelta(days=cycle - 10)
+
+            return render_template('result.html',  
+                last=request.form['date'],
+                next=next_date.strftime('%Y-%m-%d'),
+                fertile_start=fertile_start.strftime('%Y-%m-%d'),
+                fertile_end=fertile_end.strftime('%Y-%m-%d'),
+                length=cycle)
+        except Exception as e:
+            return render_template('error.html', message="Format tanggal salah")
+
+    return render_template('tracker.html')

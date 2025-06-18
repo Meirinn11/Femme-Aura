@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;700&display=swap');
+
+body {
+  background: linear-gradient(135deg, #fff1cc 0%, #ffe5b4 100%);
+  font-family: 'Fredoka', sans-serif;
+  color: #5c3d2e;
+  margin: 0;
+  padding: 0;
+}
+
+.logo {
+  width: 80px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.main-card {
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(255, 179, 102, 0.3);
+  background-color: #fffaf0;
+  padding: 20px;
+}
+
+.nav-tabs .nav-link.active {
+  color: #e2728c;
+  font-weight: bold;
+  background-color: #fff0db;
+  border-radius: 10px;
+}
+
+.subtitle {
+  color: #b98e8e;
+  margin-bottom: 30px;
+}
+
+.alert {
+  border-radius: 12px;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+.alert-info {
+  background-color: #fff8dc;
+  border-left: 6px solid #f4a460;
+}
+
+.alert-success {
+  background-color: #fefee5;
+  border-left: 6px solid #b5d33d;
+}
+
+/* ✅ Bagian yang diperbaiki untuk rekomendasi obat */
+.recommendation {
+  background-color: #fff6e1;
+  padding: 18px;
+  border-radius: 15px;
+  box-shadow: 0 3px 10px rgba(255, 193, 111, 0.3);
+  margin-top: 20px;
+  border: 1px solid #ffd8a8;
+}
+
+.recommendation h3 {
+  color: #d17954;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.recommendation ul {
+  padding-left: 20px;
+  margin: 0;
+  list-style-type: '🍊 '; /* lucu dan sesuai tema buah / peach */
+  color: #7a5d5d;
+}
+
+.recommendation li {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+.btn {
+  background-color: #f6a5a5;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(243, 145, 145, 0.3);
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #e2728c;
+}
+
+.card-drug {
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+}
+
+.card-drug:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.list-group-item {
+    background-color: #f8f9fa;
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasil - Femme Aura</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='logo.png') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header text-center my-4">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo">
+            <h1>Femme Aura</h1>
+            <p class="subtitle">Hasil Analisis</p>
+        </div>
+
+        <div class="card main-card">
+            <div class="card-body">
+                {% if type == "period" %}
+                    <div class="alert alert-info">
+                        <h4>📅 Prediksi Haid Berikutnya</h4>
+                        <p>Periode menstruasi Anda diperkirakan akan dimulai pada:</p>
+                        <h3 class="text-center my-3">{{ prediction_date }}</h3>
+                        <div class="tips mt-3">
+                            <p>💡 Tips:</p>
+                            <ul>
+                                <li>Siapkan pembalut 2 hari sebelumnya</li>
+                                <li>Minum air putih yang cukup</li>
+                                <li>Catat gejala PMS jika ada</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                {% elif type == "drugs" %}
+                    <div class="alert alert-success">
+                        <h4>💊 Rekomendasi Obat</h4>
+                        <p class="mb-3">Budget yang dipilih: 
+                            <strong>
+                                {% if budget == '20000' %}
+                                    > Rp20.000
+                                {% elif budget == '50000' %}
+                                    > Rp50.000
+                                {% elif budget == '100000' %}
+                                    > Rp100.000
+                                {% endif %}
+                            </strong>
+                        </p>
+                        
+                        <div class="mb-3">
+                            <h5>Gejala yang dipilih:</h5>
+                            <ul class="list-group list-group-flush">
+                                {% for symptom in symptoms %}
+                                    <li class="list-group-item">{{ symptom|capitalize }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        
+                        <h5 class="mt-4">Rekomendasi Obat:</h5>
+                        <div class="row">
+                            {% for drug in recommendations %}
+                                <div class="col-md-6 mb-3">
+                                    <div class="card h-100">
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{ drug.nama }}</h5>
+                                            <h6 class="card-subtitle mb-2 text-success">{{ drug.harga }}</h6>
+                                            <p class="card-text">{{ drug.deskripsi }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+
+                <a href="{{ url_for('index') }}" class="btn btn-primary mt-3 w-100">
+                    Kembali ke Beranda
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -157,5 +157,5 @@ def get_cycle_phase(days_passed, cycle_length):
     else:
         return "luteal"
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if _name_ == "__main__":
+    app.run(debug=False, host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
